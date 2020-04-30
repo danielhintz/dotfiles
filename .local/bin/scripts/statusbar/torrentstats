@@ -1,0 +1,31 @@
+#!/bin/sh
+
+pgrep transmission-da >/dev/null || exit
+
+case $BLOCK_BUTTON in
+	"1")
+		st -e watch transmission-remote -l
+		;;
+	"2")
+		;;
+	"3")
+		;;
+esac
+
+transmission-remote -l | awk 'END{
+if($NF > 0) {
+    /*
+	if($NF > 1000)
+		printf ("⬇ %0.2fMB/s ", $NF/1000);
+	else
+		printf ("⬇ %0.2fKB/s ", $NF);
+	}
+if($(NF-1) > 0) {
+	if($(NF-1) > 1000)
+		printf ("⬆ %0.2fMB/s ", $(NF-1)/1000)
+	else
+		printf ("⬆ %0.2fKB/s ", $(NF-1))
+	}*/
+}'
+
+transmission-remote -l | head -n -1 |tail -n+2| awk 'BEGIN{sum=0; num=0} {sum = sum + $2; num=num+1} END {if(NR > 0) printf("%0.0f%s", sum/num, "%")}'

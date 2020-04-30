@@ -1,0 +1,16 @@
+#!/bin/sh
+
+mic_id=$(pulsemixer --list-sources | grep Default | awk '{print $3}' | sed 's/,//g')
+
+HEADPHONE_VOL=$(pulsemixer --get-volume | awk '{print $1}')
+MIC_VOL=$(pulsemixer --id $mic_id --get-volume)
+
+mic_icon="🎙"
+head_icon="🎧"
+muted_mic=$(pulsemixer --id $mic_id --get-mute)
+[ $muted_mic = "1" ] && mic_icon="🔇"
+muted_head=$(pulsemixer --get-mute)
+[ $muted_head = "1" ] && head_icon="🔇"
+
+
+echo $head_icon$HEADPHONE_VOL $mic_mute $mic_icon

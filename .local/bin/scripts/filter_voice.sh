@@ -1,0 +1,1 @@
+/home/hintz3y/.local/share/filter_voice/filter_voice.sh

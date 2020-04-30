@@ -1,0 +1,10 @@
+#!/bin/sh
+
+case $BLOCK_BUTTON in
+	"1")
+		sudo protonvpn status > /tmp/pvpnstatus
+		st -e less /tmp/pvpnstatus
+		;;
+esac
+
+pgrep openvpn > /dev/null && echo "VPN ✅"||echo "VPN ❌"

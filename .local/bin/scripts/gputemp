@@ -1,0 +1,4 @@
+#!/bin/sh
+
+#nvidia-settings -q gpucoretemp -t|sed 1q | awk '{print ($1 * 9/5+32) "°F"}'
+nvidia-smi -q -d TEMPERATURE | grep 'GPU Current' | awk '{print $5*9/5+32 "°F"}'

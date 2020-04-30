@@ -1,0 +1,5 @@
+#!/bin/sh
+
+notify-send 'OpenVPN' 'Starting OpenVPN...'
+sudo protonvpn c -f
+

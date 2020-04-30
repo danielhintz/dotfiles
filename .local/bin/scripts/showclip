@@ -1,0 +1,11 @@
+#!/bin/sh
+
+# Display contents of selection via dunst if running.
+
+clip=$(xclip -o -selection clipboard)
+prim=$(xclip -o -selection primary)
+#second=$(xclip -o -selection secondary)
+
+[ -n "$clip" ] && notify-send "Clipboard:" "$clip"
+[ -n "$prim" ] && notify-send "Primary:" "$prim"
+#[ -n "$second" ] && notify-send "Secondary:" "$second"

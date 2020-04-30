@@ -1,0 +1,5 @@
+#!/bin/sh
+pushd $HOME/.local/bin > /dev/null
+script=$(fzf --preview 'cat {}')
+[ -z $script ] || nvim $script
+popd > /dev/null

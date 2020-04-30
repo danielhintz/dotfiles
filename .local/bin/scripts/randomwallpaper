@@ -1,0 +1,4 @@
+#!/bin/sh
+
+find "$XDG_DATA_HOME/wallpapers/$1" -path $XDG_DATA_HOME/wallpapers/.git -prune -o -type f -print | shuf -n 1 | xargs -I {} setbg "{}"
+

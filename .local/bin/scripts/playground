@@ -1,0 +1,33 @@
+#!/bin/sh
+
+
+mkdir $HOME/dox/proj/playground 2>/dev/null; cd $HOME/dox/proj/playground
+
+folder="$(date -Iminutes)"
+
+mkdir "$folder" 2>/dev/null
+cd "$folder"
+
+echo "#include <iostream>
+#include <algorithm>
+#include <filesystem>
+#include <vector>
+#include <map>
+#include <set>
+
+using namespace std;
+
+int main(int argc, char **argv)
+{
+	return 0;
+}" | tee bak >main.cpp
+
+nvim +12 main.cpp
+
+if [ -z "$(diff bak main.cpp)" ]
+then
+ 	rm -rf ../"$folder"
+else
+	rm bak
+	setsid --fork st
+fi

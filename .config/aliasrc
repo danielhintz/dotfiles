@@ -1,0 +1,28 @@
+#!/bin/sh
+
+
+alias abook="addr" \
+    ka="killall" \
+    mkd="mkdir -pv" \
+    calcurse="calcurse -C ~/.config/calcurse -D ~/.local/share/calcurse" \
+    p="sudo pacman" \
+    g="git" \
+    trem="transmission-remote" \
+    v="$EDITOR" \
+    e="edit"\
+    ls="ls -hNv --color=auto --group-directories-first" \
+    ll="ls -l" \
+    grep="grep --color=auto" \
+    diff="diff --color=auto" \
+    ccat="highlight --out-format=ansi" \
+    yta="yt -x -f bestaudio/best" \
+    dlsong="cd ~/Music && yta"\
+    YT="youtube-viewer" \
+    lsp="pacman -Qett --color=always | less" \
+    ffmpeg="ffmpeg -hide_banner" \
+    z="zathura" \
+    packages="pacman -Qq | fzf --preview 'pacman -Qil {}' --layout=reverse --bind 'enter:execute(pacman -Qil {} | less)'"\
+    qmv="qmv -f do"\
+    pvpn="sudo protonvpn"
+
+alias vim="nvim" vimdiff="nvim -d"

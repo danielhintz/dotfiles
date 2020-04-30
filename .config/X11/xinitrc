@@ -1,0 +1,7 @@
+#!/bin/sh
+
+$XDG_CONFIG_HOME/X11/xprofile
+
+#This is just a loop so to refresh dwm I can just kill it and it will auto restart
+$HOME/.local/bin/startdwm
+

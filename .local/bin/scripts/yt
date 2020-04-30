@@ -1,0 +1,5 @@
+#!/bin/sh
+
+pushd ~/vids/
+youtube-dl -i --add-metadata $@
+popd

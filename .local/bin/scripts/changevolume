@@ -1,0 +1,17 @@
+#!/bin/sh
+
+#let mpcvol="$(mpc volume | sed 's/volume: //;s/%//')"
+#let sysvol="$(pulsemixer --get-volume | awk '{print $1}')+$2"
+###[ -z "$2" ]
+#[ $sysvol -lt 0 ] && sysvol=0
+##[ $mpcvol -lt 0 ] && sysvol=0
+#echo $sysvol > $HOME/.cache/volume
+if [ $1 = "pa" ]
+then
+	pulsemixer --change-volume "$2"
+else
+	mpc volume "$2"
+fi
+
+pkill -RTMIN+11 $STATUSBAR
+#dunstify -t 500 -a changevolume -r 105971954 "🎧 $sysvol, 🎵 $mpcvol"

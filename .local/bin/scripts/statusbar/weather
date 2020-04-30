@@ -1,0 +1,11 @@
+#!/bin/sh
+
+loc=NYC
+
+case $BLOCK_BUTTON in
+	"1")
+		curl wttr.in/$loc > /tmp/weatherrep
+		st -e less /tmp/weatherrep
+		;;
+esac
+curl "wttr.in/$loc?format=1" 2>/dev/null | awk '{print $2}' | sed 's/location\;/Error/'

@@ -1,0 +1,4 @@
+#!/bin/sh
+
+sudo quark -h 192.168.1.2 -p 8000 -l -d
+

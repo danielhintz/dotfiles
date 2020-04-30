@@ -1,0 +1,4 @@
+#!/bin/sh
+
+killall $STATUSBAR
+$STATUSBAR > $XDG_CACHE_HOME/statusbar.log 2>&1

@@ -1,0 +1,13 @@
+#!/bin/sh
+
+case $BLOCK_BUTTON in
+	"1" )
+		st -e neomutt
+		;;
+	"2" )
+		;;
+	"3")
+        mw sync
+		;;
+esac
+echo "$(find ~/.local/share/mail/*/INBOX/new -type f | wc -l)$(cat /tmp/imapsyncicon_hintz3y 2>/dev/null)"

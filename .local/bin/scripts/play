@@ -1,0 +1,17 @@
+#!/bin/sh
+str="$*"
+str="${str//\ /\\\ }"
+files=$(find /Media/Movies /Media/TV\ Shows \( -iname "*$str*mkv" -o -iname "*$str*mp4" -o -iname "*$str*avi" \) -type f \
+	| sort | xargs -r -d '\n' -n1)
+str="${str//\\/}"
+#| dmenu -i -l 10 -p "Which one? <ESC> to cancel")
+#| xargs -r -I {} mpv --speed=1.21 "{}")
+files=$(echo "$files")
+selection=$(echo "$files" | dmenu -i -l 10 -p "Which one? <ESC> to cancel")
+
+if [ "$selection" = "Search the Internet for \"$str\"" ]
+then
+	$BROWSER "lookmovie.ag/movies/search/?q=${str// /%20}"
+else
+	echo $selection | xargs -r -I {} mpv --speed=1.21 "{}"
+fi

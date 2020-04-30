@@ -1,0 +1,8 @@
+#!/bin/sh
+
+while true
+do
+xdotool mousemove $(($RANDOM % 2560)) $(($RANDOM % 1440))
+sleep 1
+done
+

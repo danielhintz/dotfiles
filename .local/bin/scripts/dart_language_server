@@ -1,0 +1,16 @@
+#!/usr/bin/env sh
+# This file was created by pub v2.2.0.
+# Package: dart_language_server
+# Version: 0.1.14
+# Executable: dart_language_server
+# Script: dart_language_server
+dart "/home/hintz3y/.pub-cache/global_packages/dart_language_server/bin/dart_language_server.dart.snapshot.dart2" "$@"
+
+# The VM exits with code 253 if the snapshot version is out-of-date.
+# If it is, we need to delete it and run "pub global" manually.
+exit_code=$?
+if [ $exit_code != 253 ]; then
+  exit $exit_code
+fi
+
+pub global run dart_language_server:dart_language_server "$@"

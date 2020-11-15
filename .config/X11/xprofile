@@ -5,7 +5,7 @@ pkill dunst; dunst &
 pkill xcompmgr; xcompmgr &		# xcompmgr for transparency
 pkill $STATUSBAR; $STATUSBAR > $XDG_CACHE_HOME/statusbar.log 2>&1 &
 sudo killall crond; sudo crond >/dev/null 2>&1 &
-pkill protonmail-bridge; protonmail-bridge &
+command -v protonmail-bridge >/dev/null && (pkill protonmail-bridge; protonmail-bridge &)
 
 mw sync &
 

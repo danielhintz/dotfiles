@@ -271,7 +271,7 @@ if !exists('g:vscode')
             endif
         endfunction
 
-        noremap <silent> <C-o> :call ToggleNetrw()<cr>
+        noremap <silent> <C-p> :call ToggleNetrw()<cr>
 
     let g:ConqueTerm_Color = 2         " 1: strip color after 200 lines, 2: always with color
     let g:ConqueTerm_CloseOnEnd = 1    " close conque when program ends running

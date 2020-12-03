@@ -1,0 +1,12 @@
+#!/bin/sh
+
+out="."
+[ "$1" = "" ] || out=$1
+dir=$HOME/.cache/pushfiles/
+[ -d $dir ] || exit 1
+let index=$(cat $dir/index)-1
+[ "$index" -lt "0" ] && exit 1
+files=$dir/$index
+cp -r $files/* $out
+rm -r $files
+printf $index > $dir/index

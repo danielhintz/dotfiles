@@ -1,0 +1,10 @@
+#!/bin/sh
+[ $# = 0 ] && exit 1
+
+dir=$HOME/.cache/pushfiles/
+mkdir -p $dir || exit 1
+index=$(cat $dir/index 2>/dev/null|| (printf 0 > $dir/index && printf 0))
+mkdir $dir/$index
+cp -r "$@" $dir/$index
+let index=$index+1
+printf $index > $dir/index

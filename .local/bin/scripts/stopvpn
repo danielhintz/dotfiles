@@ -1,6 +1,6 @@
 #!/bin/sh
 
-pgrep opevpn && notify-send 'OpenVPN' 'Stopping OpenVPN...'
+pgrep openvpn && notify-send 'OpenVPN' 'Stopping OpenVPN...'
 sudo killall transmission-daemon
 sudo killall openvpn
 sudo protonvpn d

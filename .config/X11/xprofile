@@ -4,7 +4,7 @@ pkill unclutter; unclutter &		# Remove mouse when idle
 pkill dunst; dunst &
 pkill xcompmgr; xcompmgr &		# xcompmgr for transparency
 pkill $STATUSBAR; $STATUSBAR > $XDG_CACHE_HOME/statusbar.log 2>&1 &
-sudo killall crond; sudo crond >/dev/null 2>&1 &
+sudo killall crond; sudo crond  2>&1 >/dev/null &
 command -v protonmail-bridge >/dev/null && (pkill protonmail-bridge; protonmail-bridge &)
 
 mw sync &
@@ -13,8 +13,15 @@ keyboardfix& #Remap caps lock and increase x speed
 
 xinput set-prop 'Logitech Gaming Mouse G502' 'libinput Accel Profile Enabled' 0, 1 & #Disable accel
 xinput set-prop 'Logitech Gaming Mouse G502' 'libinput Accel Speed' -0.1 & #Set mouse speed
+xinput set-prop 'pointer:Ducky Ducky One2 Mini RGB' 'libinput Accel Speed' 1
 
 rm $XDG_CACHE_HOME/.netlog
 
 # Wallpaper that spans my monitors
-(cd ~/dl && xwallpaper --output DP-2 --maximize dual1.jpg --output DP-0 --maximize dual2.jpg)
+(cd /Media/wallpapers/space1/ && xwallpaper --output DP-2 --maximize dual1.jpg --output DP-0 --maximize dual2.jpg)
+
+# Replug the bluetooth controller because sometimes it doesn't work on startup
+{
+    sleep 1
+    sudo usbreset 001/004 
+}

@@ -1,0 +1,3 @@
+#!/bin/sh
+
+df -h | grep /home | sed 1q | awk '{print $3"/"$2}'

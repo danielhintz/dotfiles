@@ -1,10 +1,12 @@
 export EDITOR="nvim"
+export MANPAGER="nvim +Man!"
+export PAGER="nvim +Man!"
 export TERMINAL="st"
 export BROWSER="firefox"
 export READER="zathura"
 export FILE="lf"
 
-export PATH="$(find $HOME/.local/bin/scripts -type d | tr '\n' ':')$HOME/.local/share/go/bin/:$PATH"
+export PATH="$(find $HOME/.local/bin/scripts -type d | tr '\n' ':')$HOME/.local/share/go/bin/:$HOME/.local/bin/:$PATH"
 
 export BIB="$HOME/Documents/LaTeX/uni.bib"
 export REFER="$HOME/Documents/referbib"

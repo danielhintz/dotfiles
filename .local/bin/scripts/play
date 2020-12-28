@@ -1,7 +1,10 @@
 #!/bin/sh
+
+#TODO: Convert this from dmenu to fzf
+
 str="$*"
 str="${str//\ /\\\ }"
-files=$(find /Media/Movies /Media/TV\ Shows \( -iname "*$str*mkv" -o -iname "*$str*mp4" -o -iname "*$str*avi" \) -type f \
+files=$(find /Media/movies /Media/television \( -ipath "*$str*mkv" -o -ipath "*$str*mp4" -o -ipath "*$str*avi" \) -type f \
 	| sort | xargs -r -d '\n' -n1)
 str="${str//\\/}"
 #| dmenu -i -l 10 -p "Which one? <ESC> to cancel")
@@ -9,9 +12,5 @@ str="${str//\\/}"
 files=$(echo "$files")
 selection=$(echo "$files" | dmenu -i -l 10 -p "Which one? <ESC> to cancel")
 
-if [ "$selection" = "Search the Internet for \"$str\"" ]
-then
-	$BROWSER "lookmovie.ag/movies/search/?q=${str// /%20}"
-else
-	echo $selection | xargs -r -I {} mpv --speed=1.21 "{}"
-fi
+[ -z $selection ] || echo $selection >> $XDG_CACHE_HOME/playhist
+echo $selection | xargs -r -I {} mpv --speed=1.21 "{}"

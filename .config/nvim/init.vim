@@ -12,7 +12,10 @@ if !exists('g:vscode')
     Plug 'sbdchd/neoformat'
     Plug 'neoclide/coc.nvim', {'branch': 'release'}
     Plug 'fatih/vim-go'
+    Plug 'szymonmaszke/vimpyter'
+    Plug 'OmniSharp/omnisharp-vim'
     call plug#end()
+
 
     set bg=light
     set go=a
@@ -206,7 +209,7 @@ if !exists('g:vscode')
 
 
     """C/C++
-        autocmd BufWritePre *.cpp,*.hpp,*.h,*.c :Neoformat
+        "autocmd BufWritePre *.cpp,*.hpp,*.h,*.c :Neoformat
         "let g:neoformat_cpp_clangformat = {"exe": "clang-format", "args":["-style=file",],}
 
         nnoremap <F4> :!g++ % && ./a.out<cr>
@@ -215,6 +218,9 @@ if !exists('g:vscode')
         nnoremap <F6> :!make debug<cr>
         nnoremap <F8> :VBGstartGDB a.out<cr>
 
+
+    """ C#
+        let g:OmniSharp_server_use_mono = 1
 
     """FLUTTER
         autocmd FileType dart nnoremap <leader>Fa :CocCommand flutter.run<cr>
@@ -246,6 +252,7 @@ if !exists('g:vscode')
         let g:go_rename_command = 'gopls'
         let g:go_highlight_diagnostic_errors = 0
         let g:go_highlight_diagnostic_warnings = 0
+    
 
     """NETRW
         let g:netrw_banner = 0

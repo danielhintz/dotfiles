@@ -1,0 +1,5 @@
+#!/bin/sh
+
+symbol=$(dmenu -i -p 'Symbol: ' -l 20 -w 500 -x 10 -y 43 < ~/.config/symbols.txt | awk '{print $1}')
+
+[ -z "$symbol" ] || xdg-open https://finance.yahoo.com/quote/$symbol

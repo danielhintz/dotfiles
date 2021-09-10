@@ -1,0 +1,3 @@
+#!/bin/sh
+
+pulsemixer --id $(pulsemixer --list-sources | grep Default | awk '{print $3}' | sed 's/,//g') --toggle-mute; pkill -RTMIN+11 $STATUSBAR

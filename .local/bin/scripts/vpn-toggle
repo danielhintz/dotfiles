@@ -1,7 +1,7 @@
 #!/bin/sh
 
 
-if [ -z $(pgrep openvpn) ] ; then
+if [ -z "$(pgrep openvpn)" ] ; then
 	startvpn
 else
 	stopvpn

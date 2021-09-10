@@ -3,10 +3,10 @@
 [ -z "$1" ] && { "$BROWSER"; exit; }
 
 case "$1" in
-	*mkv|*webm|*mp4|*youtube.com/watch*|*youtube.com/playlist*|*youtu.be*|*hooktube.com*|*bitchute.com*|*invidious.snopyta.org/watch*)
+	*mp3|*mp3?*|*ogg|*mkv|*webm|*mp4|*youtube.com/watch*|*youtube.com/playlist*|*youtu.be*|*hooktube.com*|*bitchute.com*|*invidious.snopyta.org/watch*|*invidious.snopyta.org/*|*clips.twitch.tv/*|*twitch.tv/*/clip/*|*v.redd.it/*|*streamable.com/*)
 		setsid -f mpv -quiet "$1" >/dev/null 2>&1 ;;
 	*png|*jpg|*jpe|*jpeg|*gif)
-		curl -sL "$1" > "/tmp/$(echo "$1" | sed "s/.*\///")" && sxiv -a "/tmp/$(echo "$1" | sed "s/.*\///")"  >/dev/null 2>&1 & ;;
+        (sxiv -a "/tmp/$(echo "$1" | sed "s/.*\///")" 2>/dev/null || (curl -sL "$1" > "/tmp/$(echo "$1" | sed "s/.*\///")" && sxiv -a "/tmp/$(echo "$1" | sed "s/.*\///")"  >/dev/null 2>&1)) & ;;
 	*mp3|*flac|*opus|*mp3?source*)
 		curl -LO "$1" >/dev/null 2>&1 ;;
     *bg.endl.site/imageproxy?url=*)

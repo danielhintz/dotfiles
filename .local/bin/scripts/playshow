@@ -1,0 +1,20 @@
+#!/bin/sh
+
+playstart=auto
+cmd=${1}
+prefix=/Media/television/
+selection=$(find $prefix -type d -links 2 | sort |\
+    sed "s~$prefix~~g" | dmenu -i -l 10 -p "Which one? <ESC> to cancel")
+[ -z "$selection" ] && exit
+if [ "$cmd" = "-b" -o "$cmd" = "browse" ]
+then
+    tostart=$(find "$prefix$selection" -type f | sort | sed "s~$prefix$selection/~~g" | dmenu -i -l 10)
+    [ -z "$tostart" ] && exit
+    playstart="$(($(find "$prefix$selection" -type f | sort | grep -n "$tostart"|awk -F: '{print $1}')-1))" # grep uses 1-based indices like god damn animals
+fi
+[ -z "$selection" ] && exit
+echo 'q quit-watch-later' >> $HOME/.config/mpv/input.conf
+echo "$selection" >> $XDG_CACHE_HOME/playhist
+mpv --playlist-start=$playstart "$prefix$selection" & sleep 1
+sed -i '/q quit-watch-later/d' $HOME/.config/mpv/input.conf
+wait

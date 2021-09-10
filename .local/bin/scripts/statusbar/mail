@@ -7,7 +7,7 @@ case $BLOCK_BUTTON in
 	"2" )
 		;;
 	"3")
-        mw sync
+        mw -Y
 		;;
 esac
-echo "$(find ~/.local/share/mail/*/INBOX/new -type f | wc -l)$(cat /tmp/imapsyncicon_hintz3y 2>/dev/null)"
+echo "$(find ~/.local/share/mail/*/INBOX/new -type f | wc -l)$(cat /tmp/imapsyncicon_$USER 2>/dev/null)"

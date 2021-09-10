@@ -30,6 +30,7 @@ _comp_options+=(globdots)		# Include hidden files.
 
 # vi mode
 bindkey -v
+bindkey ^R history-incremental-pattern-search-backward
 export KEYTIMEOUT=1
 
 # Use vim keys in tab complete menu:
@@ -83,3 +84,5 @@ bindkey '^e' edit-command-line
 
 # Load zsh-syntax-highlighting; should be last.
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2>/dev/null
+
+paleofetch

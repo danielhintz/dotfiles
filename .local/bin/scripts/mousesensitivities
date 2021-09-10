@@ -1,0 +1,6 @@
+#!/bin/sh
+
+xinput set-prop 'pointer:Logitech G502' 'libinput Accel Profile Enabled' 0, 1 & #Disable accel
+xinput set-prop 'pointer:Logitech G502' 'libinput Accel Speed' -0.1 & #Set mouse speed
+xinput set-prop 'pointer:Ducky Ducky One2 Mini RGB' 'libinput Accel Speed' 1
+

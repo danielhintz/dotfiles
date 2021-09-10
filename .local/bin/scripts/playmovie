@@ -1,0 +1,8 @@
+#!/bin/sh
+
+PREFIX=/Media/movies/.all/
+selection=$(find "$PREFIX" \( -name "*mkv" -o -name "*mp4" -o -name "*avi" \) -type f |\
+    sort | sed "s~$PREFIX~~" | dmenu -i -l 10 -p "Which one? <ESC> to cancel")
+
+[ -z "$selection" ] && exit || echo $selection >> $XDG_CACHE_HOME/playhist
+mpv "$PREFIX$selection"

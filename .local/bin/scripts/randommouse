@@ -2,7 +2,9 @@
 
 while true
 do
-xdotool mousemove $(($RANDOM % 2560)) $(($RANDOM % 1440))
-sleep 1
+    x=$(( $(od -N4 -D /dev/urandom | awk '{print $2}') % 2560 ))
+    y=$(( $(od -N4 -D /dev/urandom | awk '{print $2}') % 1440 ))
+    xdotool mousemove $x $y
+sleep 2
 done
 

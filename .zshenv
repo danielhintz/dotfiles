@@ -1,8 +1,8 @@
 export EDITOR="nvim"
 export MANPAGER="nvim +Man!"
 export PAGER="nvim +Man!"
-export TERMINAL="st"
-export BROWSER="firefox"
+export TERMINAL="st -e tmux"
+export BROWSER="qutebrowser"
 export READER="zathura"
 export FILE="lf"
 
@@ -33,6 +33,7 @@ export _JAVA_OPTIONS=-Djava.util.prefs.userRoot="$XDG_CONFIG_HOME/java"
 export _JAVA_AWT_WM_NONREPARENTING=1
 export LESSHISTFILE="-"
 export MAILCAPS="$XDG_CONFIG_HOME/mailcap/mailcap"
+export MBSYNCRC="$XDG_CONFIG_HOME/mbsync/mbsyncrc"
 export NPM_CONFIG_USERCONFIG="$XDG_CONFIG_HOME/npm/npmrc"
 export NVM_DIR="$XDG_DATA_HOME/nvm"
 export NODE_REPL_HISTORY="$XDG_DATA_HOME/node_repl_history"

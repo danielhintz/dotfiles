@@ -1,5 +1,6 @@
 #!/bin/sh
-pushd $HOME/.local/bin > /dev/null
+cur=$PWD
+cd  "$HOME/.local/bin" || exit 1
 script=$(fzf --preview 'cat {}')
-[ -z $script ] || nvim $script
-popd > /dev/null
+[ -z "$script" ] || nvim "$script"
+cd "$cur" || exit 1

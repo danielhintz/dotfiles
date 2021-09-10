@@ -1,5 +1,6 @@
 #!/bin/sh
 
-pushd ~/vids/
-youtube-dl -i --add-metadata $@
-popd
+cur=$PWD
+cd ~/vids/ || exit 1
+youtube-dl -i --add-metadata "$@"
+cd "$cur" || exit

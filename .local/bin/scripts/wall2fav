@@ -1,6 +1,0 @@
-#!/bin/sh
-
-name=$1
-[ -z "$name" ] && name="$(date -I)-$RANDOM"
-
-cp "$XDG_CONFIG_HOME"/wall.png ~/.local/share/wallpapers/favs/"$name".png

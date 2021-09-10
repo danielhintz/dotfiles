@@ -2,4 +2,4 @@
 
 notify-send 'OpenVPN' 'Starting OpenVPN...'
 sudo protonvpn c -f
-
+sudo protonvpn s | grep -E 'Server|IP|Load' | tr '\n' , |tr -d ' '| head -c -1 | xargs -I{} notify-send 'OpenVPN status' "{}"

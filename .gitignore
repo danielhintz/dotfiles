@@ -6,10 +6,10 @@
 /.config/*
 
 !/.config/dunst/
-!/.config/htop/
 !/.config/lf/
 !/.config/mailcaps/
 !/.config/mpv/
+/.config/mpv/watch_later/
 !/.config/scron/
 !/.config/youtube-dl/
 !/.config/X11/
@@ -25,6 +25,7 @@
 !/.config/bmfiles
 !/.config/emoji
 !/.config/shortcutrc
+!/.config/symbols.txt
 
 !/.config/nvim/
 /.config/nvim/plugged

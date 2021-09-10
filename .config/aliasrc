@@ -10,7 +10,7 @@ alias abook="addressbook" \
     trem="transmission-remote" \
     v="$EDITOR" \
     e="edit"\
-    ls="ls -hNv --color=auto --group-directories-first" \
+    ls="ls -Nv --color=auto --group-directories-first" \
     ll="ls -l" \
     grep="grep --color=auto" \
     diff="diff --color=auto" \
@@ -23,6 +23,7 @@ alias abook="addressbook" \
     z="zathura" \
     packages="pacman -Qq | fzf --preview 'pacman -Qil {}' --layout=reverse --bind 'enter:execute(pacman -Qil {} | less)'"\
     qmv="qmv -f do"\
-    pvpn="sudo protonvpn"
+    pvpn="sudo protonvpn" \
+    wallet="monero-wallet-cli --wallet-file .local/share/monerowallet/MyWallet"
 
 alias vim="nvim" vimdiff="nvim -d"

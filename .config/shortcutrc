@@ -1,11 +1,12 @@
+#!/bin/sh
+
 alias h="cd ~/ && ls -la" \
 d="cd ~/dox && ls -la" \
 D="cd ~/dl && ls -la" \
-M="cd /Media && ls -la" \
 pp="cd ~/pix && ls -la" \
 P="cd ~/dox/proj && ls -la" \
 W="cd ~/dox/WORK && ls -la" \
-vv="cd ~/vid && ls -la" \
+vv="cd ~/vids && ls -la" \
 cf="cd ~/.config && ls -la" \
 sc="cd ~/.local/bin && ls -la" \
 mn="cd /mnt && ls -la" \
@@ -13,9 +14,11 @@ bf="$EDITOR ~/.config/bmfiles" \
 bd="$EDITOR ~/.config/bmdirs" \
 cfa="$EDITOR ~/.config/aliasrc" \
 cfz="$EDITOR ~/.config/zsh/.zshrc" \
+cfe="$EDITOR ~/.zshenv" \
 cfx="$EDITOR ~/.config/X11/xprofile" \
 cfv="$EDITOR ~/.config/nvim/init.vim" \
 cfn="$EDITOR ~/.config/newsboat/urls" \
+cfc="sudo $EDITOR /etc/crontab;echo remember to kill crond or send SIGHUP to it to reload" \
 cfs="$EDITOR ~/.local/share/dwmblocks/config.h" \
 eb="$EDITOR ~/dox/LaTeX/uni.bib" \
 cv="$EDITOR ~/dox/LaTeX/cv.tex" \

@@ -2,7 +2,7 @@
 
 playstart=auto
 cmd=${1}
-prefix=/Media/television/
+prefix=/Media/serve/television/
 selection=$(find $prefix -type d -links 2 | sort |\
     sed "s~$prefix~~g" | dmenu -i -l 10 -p "Which one? <ESC> to cancel")
 [ -z "$selection" ] && exit

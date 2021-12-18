@@ -27,6 +27,7 @@ vim.opt.splitright = true
 vim.cmd([[
   syntax on 
   filetype plugin on
+  colorscheme wombat256mod
 ]])
 
 vim.api.nvim_set_keymap('n', 'c', '"_c', {noremap=true})
@@ -80,7 +81,7 @@ local on_attach = function(client, bufnr)
 end
 
 local nvim_lsp = require('lspconfig')
-local servers = { 'ccls', 'gopls' }
+local servers = { 'gopls', 'bashls', 'texlab', 'pylsp' }
 
 for _, lsp in ipairs(servers) do
   nvim_lsp[lsp].setup {
@@ -100,8 +101,21 @@ nvim_lsp['pyright'].setup {
     root_dir = function(fname)
         return util.root_pattern(".git", "setup.py",  "setup.cfg", "pyproject.toml", "requirements.txt")(fname) or util.path.dirname(fname)
       end
-  }
+}
 
+nvim_lsp['ccls'].setup {
+    on_attach = on_attach,
+    flags = {
+        debounce_text_changes = 150,
+    },
+    init_options = {
+        clang = {
+            extraArgs = {
+	    "-std=c++2a",
+	    };
+        };
+    }
+}
 
 local luasnip = require 'luasnip'
 local cmp = require 'cmp'

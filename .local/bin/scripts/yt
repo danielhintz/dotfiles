@@ -2,5 +2,5 @@
 
 cur=$PWD
 cd ~/vids/ || exit 1
-youtube-dl -i --add-metadata "$@"
+yt-dlp -i --add-metadata "$@"
 cd "$cur" || exit

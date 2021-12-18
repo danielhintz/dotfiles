@@ -7,6 +7,8 @@ alias abook="addressbook" \
     calcurse="calcurse -C ~/.config/calcurse -D ~/.local/share/calcurse" \
     p="sudo pacman" \
     g="git" \
+    gn="git number" \
+    ga="git number add" \
     trem="transmission-remote" \
     v="$EDITOR" \
     e="edit"\
@@ -25,5 +27,9 @@ alias abook="addressbook" \
     qmv="qmv -f do"\
     pvpn="sudo protonvpn" \
     wallet="monero-wallet-cli --wallet-file .local/share/monerowallet/MyWallet"
+
+notify() {
+    echo -e "\033]777;notify;$1;$2\a"
+}
 
 alias vim="nvim" vimdiff="nvim -d"

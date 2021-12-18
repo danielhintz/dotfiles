@@ -8,5 +8,6 @@ return require('packer').startup(function(use)
     use 'L3MON4D3/LuaSnip'
     use 'hrsh7th/cmp-nvim-lsp'
     use 'saadparwaiz1/cmp_luasnip'
+    use 'michalbachowski/vim-wombat256mod'
 end)
 

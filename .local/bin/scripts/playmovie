@@ -1,6 +1,6 @@
 #!/bin/sh
 
-PREFIX=/Media/movies/.all/
+PREFIX=/Media/serve/movies/all/
 selection=$(find "$PREFIX" \( -name "*mkv" -o -name "*mp4" -o -name "*avi" \) -type f |\
     sort | sed "s~$PREFIX~~" | dmenu -i -l 10 -p "Which one? <ESC> to cancel")
 

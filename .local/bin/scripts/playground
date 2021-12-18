@@ -8,19 +8,59 @@ folder="$(date -Iminutes)"
 mkdir "$folder" 2>/dev/null
 cd "$folder"
 
-echo "#include <iostream>
+echo '#include <iostream>
+#include <fstream>
 #include <algorithm>
 #include <filesystem>
 #include <vector>
+#include <numeric>
 #include <map>
 #include <set>
+
+#include "absl/strings/str_split.h"
 
 using namespace std;
 
 int main(int argc, char **argv)
 {
+    ifstream in{"input.txt"};
 	return 0;
-}" | tee bak >main.cpp
+}' | tee bak >main.cpp
+touch input.txt
+
+echo '
+load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_archive")
+
+http_archive(
+  name = "com_google_absl",
+  urls = ["https://github.com/abseil/abseil-cpp/archive/98eb410c93ad059f9bba1bf43f5bb916fc92a5ea.zip"],
+  strip_prefix = "abseil-cpp-98eb410c93ad059f9bba1bf43f5bb916fc92a5ea",
+)
+
+http_archive(
+  name = "rules_cc",
+  urls = ["https://github.com/bazelbuild/rules_cc/archive/262ebec3c2296296526740db4aefce68c80de7fa.zip"],
+  strip_prefix = "rules_cc-262ebec3c2296296526740db4aefce68c80de7fa",
+)
+' > WORKSPACE
+
+echo '
+cc_binary(
+    name = "main",
+    srcs = [
+        "main.cpp",
+    ],
+    deps = [
+        "@com_google_absl//absl/strings",
+    ],
+    copts = [
+        "-std=c++2a",
+    ],
+    data = [
+        "input.txt",
+    ],
+)
+' > BUILD
 
 nvim +12 main.cpp
 
@@ -29,5 +69,5 @@ then
  	rm -rf ../"$folder"
 else
 	rm bak
-	setsid --fork st
+	setsid --fork $TERMINAL
 fi

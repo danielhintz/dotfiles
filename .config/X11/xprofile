@@ -1,5 +1,5 @@
 #!/bin/sh
-startvpn &                      # Connect to vpn
+#startvpn &                      # Connect to vpn
 setbg &                         # Wallpaper
 pkill unclutter; unclutter &    # Remove mouse when idle
 pkill dunst; dunst &            # For notifications

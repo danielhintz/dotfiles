@@ -1,5 +1,5 @@
 #!/bin/sh
 
 ip=$(ip addr show eth0 | grep -E 'inet\s' | awk '{print $2}' | awk -F/ '{print $1}')
-sudo quark -h $ip -p 8000 -l -d "$1" -u myman
+sudo quark -h $ip -p 8000 -l -d "$1"
 

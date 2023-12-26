@@ -68,7 +68,7 @@ CHANNEL_ID=$(curl -sfLS "$URL" \
 		FEED="$LINK_REL"
 	fi
 
-	echo "$FEED"
+    echo "$FEED" \"youtube\" ! \""$(awk -F/ '{print $NF}' <<< $1)"\"
 done
 
 if [ "$COUNT" = "0" ]

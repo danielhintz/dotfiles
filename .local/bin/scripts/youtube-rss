@@ -41,7 +41,7 @@ do
 	then
 
 ## Do Not Indent
-CHANNEL_ID=$(curl -sfLS "$URL" \
+CHANNEL_ID=$(curl -sfLS "${URL}" \
 | sed -e 's#<#\
 <#g' \
 -e 's#>#>\

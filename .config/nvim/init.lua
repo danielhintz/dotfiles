@@ -66,18 +66,14 @@ vim.api.nvim_set_keymap('n', '<M-LeftMouse>', '<Plug>(VM-Mouse-Cursor)', {})
 vim.api.nvim_set_keymap('i', '<M-LeftMouse>', '<ESC><Plug>(VM-Mouse-Cursor)', {silent=true})
 vim.api.nvim_set_keymap('n', '<M-q>', '<Plug>(VM-Add-Cursor-At-Pos)', {})
 
-vim.api.nvim_set_keymap('i', '<leader><tab>', '<Esc>:Copilot panel<CR>', {})
-vim.api.nvim_set_keymap('n', '<leader><tab>', '<Esc>:Copilot panel<CR>', {})
-
 vim.api.nvim_set_keymap('n', '<C-t>', ':TlistToggle<CR>', {})
 
 vim.api.nvim_set_keymap('n', '<leader>n', ':NERDTreeToggle<CR>', {})
 
-vim.g.vimwiki_list = {{path = '~/.local/share/vimwiki/', syntax = 'markdown', ext = '.md', path_html = '~/.local/share/vimwiki_html'}}
-
--- Formatter
 vim.api.nvim_set_keymap('n', '<leader>f', ':Neoformat<CR>', {})
 vim.api.nvim_set_keymap('v', '<leader>f', ':Neoformat<CR>', {})
+
+vim.g.vimwiki_list = {{path = '~/.local/share/vimwiki/', syntax = 'markdown', ext = '.md', path_html = '~/.local/share/vimwiki_html'}}
 
 local opts = { noremap=true, silent=true }
 vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, opts)

@@ -4,6 +4,4 @@
 
 # transmission-daemon sometimes fails to take remote requests in its first moments.
 
-torrent=${1:-$(xclip -selection clipboard -o)}
-
-ssh helios "/home/dev/.local/bin/scripts/transadd \"$torrent\"" && notify-send "🔽 Torrent added." || notify-send "Failed to add torrent"
+ssh helios "/home/dev/.local/bin/scripts/transadd '$@'"

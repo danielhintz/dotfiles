@@ -10,6 +10,7 @@
 !/.config/mailcaps/
 !/.config/mpv/
 /.config/mpv/watch_later/
+!/.config/qutebrowser/
 !/.config/scron/
 !/.config/youtube-dl/
 !/.config/X11/

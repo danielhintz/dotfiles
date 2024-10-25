@@ -1,0 +1,4 @@
+#!/bin/sh
+
+cd "$HOME"/.local/share/DwarfFortress || exit
+./run_df

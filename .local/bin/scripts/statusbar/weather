@@ -1,6 +1,6 @@
 #!/bin/sh
 
-loc=NYC
+loc=10022
 
 case $BLOCK_BUTTON in
 	"1")

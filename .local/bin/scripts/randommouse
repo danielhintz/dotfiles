@@ -2,8 +2,8 @@
 
 while true
 do
-    x=$(( $(od -N4 -D /dev/urandom | awk '{print $2}') % 2560 ))
-    y=$(( $(od -N4 -D /dev/urandom | awk '{print $2}') % 1440 ))
+    x=$(( $(od -N4 -An -D /dev/urandom) % 2560 ))
+    y=$(( $(od -N4 -An -D /dev/urandom) % 1440 ))
     xdotool mousemove $x $y
 sleep 2
 done

@@ -1,6 +1,8 @@
 #!/bin/sh
 
 cur=$PWD
-cd ~/vids/ || exit 1
-yt-dlp -i --add-metadata "$@"
+dir=${2:-~/vids/}
+mkdir -p "$dir"
+cd "$dir" || exit 1
+yt-dlp --live-from-start -i --add-metadata "$1"
 cd "$cur" || exit

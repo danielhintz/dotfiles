@@ -42,7 +42,7 @@ return require('packer').startup(function(use)
     use 'mg979/vim-visual-multi'
 
     -- Copilot
-    use 'github/copilot.vim'
+    --use 'github/copilot.vim'
 
     -- Git
     use 'rhysd/conflict-marker.vim'

@@ -1,0 +1,1 @@
+sudo mount -t ntfs-3g -o remove_hiberfile /dev/nvme0n1p2 /mnt/windows

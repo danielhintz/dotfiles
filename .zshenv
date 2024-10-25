@@ -6,7 +6,8 @@ export BROWSER="qutebrowser"
 export READER="zathura"
 export FILE="lf"
 
-export PATH="$(find $HOME/.local/bin/scripts -type d | tr '\n' ':')$HOME/.local/share/go/bin/:$HOME/.local/bin/:$PATH"
+export PATH="/opt/clang/latest/bin/:$(find $HOME/.local/bin/scripts -type d | tr '\n' ':')$HOME/.local/share/go/bin/:$HOME/.local/bin/:$PATH"
+export PATH="$PATH:/opt/flutter/bin"
 
 export BIB="$HOME/Documents/LaTeX/uni.bib"
 export REFER="$HOME/Documents/referbib"
@@ -24,6 +25,7 @@ export CUDA_CACHE_PATH="$XDG_CACHE_HOME/nv"
 export GEM_HOME="$XDG_DATA_HOME"/gem
 export GEM_SPEC_CACHE="$XDG_CACHE_HOME"/gemexport GNUPGHOME="$XDG_DATA_HOME/gnupg"
 export GOPATH="$XDG_DATA_HOME/go"
+export GPG_TTY=$(tty)
 export GRADLE_USER_HOME="$XDG_DATA_HOME/gradle"
 export GTK2_RC_FILES="$XDG_CONFIG_HOME/gtk-2.0/gtkrc-2.0"
 export INPUTRC="$XDG_CONFIG_HOME/readline/inputrc"

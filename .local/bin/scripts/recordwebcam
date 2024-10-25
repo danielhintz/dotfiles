@@ -1,4 +1,4 @@
 #!/bin/sh
 
 #sudo ffmpeg -hide_banner -loglevel panic -f video4linux2 -input_format mjpeg -s 1920x1080 -i /dev/video0 -preset ultrafast /home/hintz3y/Videos/Captures/`echo $(date +%s)`.mkv
-sudo ffmpeg -hide_banner -f v4l2 -input_format mjpeg -framerate 30 -i /dev/video0 -preset ultrafast /Media/temp_serve/$(date +%s).mkv
+sudo ffmpeg -hide_banner -f v4l2 -input_format mjpeg -framerate 30 -i /dev/video0 -preset ultrafast /mnt/raid_media/temp_serve/$(date +%s).mkv

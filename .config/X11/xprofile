@@ -5,13 +5,13 @@ pkill unclutter; unclutter &    # Remove mouse when idle
 pkill dunst; dunst &            # For notifications
 #pkill xcompmgr; xcompmgr &		# xcompmgr for transparency
 restartstatusbar &              # Start statusbar
-command -v protonmail-bridge >/dev/null && (pkill protonmail-bridge; protonmail-bridge &)
+command -v protonmail-bridge >/dev/null && (pkill protonmail-bridge; protonmail-bridge -n &)
 
 keyboardfix& #Remap caps lock and increase x speed
 
 mousesensitivities &
 
-rm $XDG_CACHE_HOME/.netlog
+rm "$XDG_CACHE_HOME"/.netlog
 
 # Wallpaper that spans my monitors
 #(cd /Media/wallpapers/space1/ && xwallpaper --output DP-2 --maximize dual1.jpg --output DP-0 --maximize dual2.jpg)

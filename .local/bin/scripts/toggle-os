@@ -1,0 +1,4 @@
+#!/bin/sh
+
+sudo grub-reboot osprober-efi-7232-8456
+sudo init 6

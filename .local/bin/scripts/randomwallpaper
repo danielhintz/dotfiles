@@ -1,4 +1,5 @@
 #!/bin/sh
 
-find "$XDG_DATA_HOME/wallpapers/$1" -path $XDG_DATA_HOME/wallpapers/.git -prune -o -type f -print | shuf -n 1 | xargs -I {} setbg "{}"
+subfolder=${1:-wg}
 
+find "$XDG_DATA_HOME/wallpapers/$subfolder" -path "$XDG_DATA_HOME"/wallpapers/.git -prune -o -type f -print | shuf -n 1 | xargs -I {} setbg "{}"

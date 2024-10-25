@@ -1,0 +1,9 @@
+#!/bin/sh
+
+URL=$1
+directory=${2:-/mnt/raid_media/wallpapers}
+mkdir -p "$directory"
+
+out="$directory"/"$(basename "$URL")"
+
+curl --silent -L "$URL" > "$out"

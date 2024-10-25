@@ -1,11 +1,6 @@
 # Don't have to type cd to go into a directory just type the folder name
 setopt autocd
 
-#autoload -Uz vcs_info
-#precmd () { vcs_info }
-#setopt prompt_subst
-#zstyle ':vcs_info:git*' formats "%s < %r %{%F{blue}%}%b%{%F{reset_color}$reset_color%}%m%{$reset_color%} >"
-
 # Enable colors and change prompt:
 autoload -U colors && colors
 PS1="%B%{$fg[red]%}[%{$fg[yellow]%}%n%{$fg[green]%}@%{$fg[blue]%}%M %{$fg[magenta]%}%~%{$fg[red]%}]%{$reset_color%}$%b "
@@ -14,8 +9,8 @@ RPROMPT='[%F{yellow}%?%f]'
 #RPROMPT="\$vcs_info_msg_0_ $RPROMPT"
 
 # History in cache directory:
-HISTSIZE=10000
-SAVEHIST=10000
+HISTSIZE=100000000
+SAVEHIST=100000000
 HISTFILE=~/.cache/zsh/history
 
 #Create the zsh cache directory, zsh does NOT do this automatically and history does not get saved if the cache directory is deleted
@@ -24,13 +19,21 @@ mkdir -p ~/.cache/zsh/
 # Basic auto/tab complete:
 autoload -U compinit
 zstyle ':completion:*' menu select
+zstyle ':completion:*' use-cache on
+zstyle ':completion:*' cache-path ~/.cache/zsh/cache
+
 zmodload zsh/complist
 compinit -d ~/.cache/zsh/zcompdump-$ZSH_VERSION
 _comp_options+=(globdots)		# Include hidden files.
 
+autoload -U bashcompinit && bashcompinit
+
 # vi mode
 bindkey -v
+
 bindkey ^R history-incremental-pattern-search-backward
+# fzf history search
+source <(fzf --zsh)
 export KEYTIMEOUT=1
 
 # Use vim keys in tab complete menu:

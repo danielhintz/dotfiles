@@ -1,6 +1,6 @@
 #!/bin/sh
 
-line=$(bluetoothctl paired-devices | sort -r | dmenu -p "Disconnect:")
+line=$(bluetoothctl devices | dmenu -l 3 -p "Disconnect:")
 device=$(echo $line | grep -Eo '([0-9A-F]{2}:?){6}')
 
 [ -z $device ] && exit 1

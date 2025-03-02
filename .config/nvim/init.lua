@@ -1,4 +1,4 @@
-require('plugins')
+require("config.lazy")
 
 vim.cmd('source ~/.config/nvim/vimrc')
 
@@ -12,7 +12,6 @@ vim.opt.smarttab = true
 vim.opt.shiftwidth = 4
 vim.opt.scrolloff = 4
 
-vim.g.mapleader = ','
 vim.g.nocompatible = true
 vim.opt.encoding = 'utf-8'
 vim.opt.number = true
@@ -32,6 +31,7 @@ vim.cmd([[
 filetype plugin on
 colorscheme wombat256mod
 ]])
+--colorscheme retrobox
 
 vim.g.mkdp_port = 8080
 vim.g.mkdp_echo_preview_url = 1
@@ -382,24 +382,24 @@ cmp.setup({
       behavior = cmp.ConfirmBehavior.Replace,
       select = true,
     },
-    ['<Tab>'] = function(fallback)
-      if vim.fn.pumvisible() == 1 then
-        vim.fn.feedkeys(vim.api.nvim_replace_termcodes('<C-n>', true, true, true), 'n')
-      elseif luasnip.expand_or_jumpable() then
-        vim.fn.feedkeys(vim.api.nvim_replace_termcodes('<Plug>luasnip-expand-or-jump', true, true, true), '')
-      else
-        fallback()
-      end
-    end,
-    ['<S-Tab>'] = function(fallback)
-      if vim.fn.pumvisible() == 1 then
-        vim.fn.feedkeys(vim.api.nvim_replace_termcodes('<C-p>', true, true, true), 'n')
-      elseif luasnip.jumpable(-1) then
-        vim.fn.feedkeys(vim.api.nvim_replace_termcodes('<Plug>luasnip-jump-prev', true, true, true), '')
-      else
-        fallback()
-      end
-    end,
+    --['<Tab>'] = function(fallback)
+      --if vim.fn.pumvisible() == 1 then
+        --vim.fn.feedkeys(vim.api.nvim_replace_termcodes('<C-n>', true, true, true), 'n')
+      --elseif luasnip.expand_or_jumpable() then
+        --vim.fn.feedkeys(vim.api.nvim_replace_termcodes('<Plug>luasnip-expand-or-jump', true, true, true), '')
+      --else
+        --fallback()
+      --end
+    --end,
+    --['<S-Tab>'] = function(fallback)
+      --if vim.fn.pumvisible() == 1 then
+        --vim.fn.feedkeys(vim.api.nvim_replace_termcodes('<C-p>', true, true, true), 'n')
+      --elseif luasnip.jumpable(-1) then
+        --vim.fn.feedkeys(vim.api.nvim_replace_termcodes('<Plug>luasnip-jump-prev', true, true, true), '')
+      --else
+        --fallback()
+      --end
+    --end,
   },
   sources = {
     { name = 'nvim_lsp' },

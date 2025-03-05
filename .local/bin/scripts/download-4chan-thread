@@ -9,7 +9,7 @@ json=$(mktemp)
 curl --silent -L "$api" > "$json"
 title=$(jq  <"$json" '.posts[0].sub' | sed 's;/;;g;s/"//g')
 [ "$title" = "null" ] && title=$(jq  <"$json" '.posts[0].com' | sed 's;/;;g;s/"//g')
-directory=/mnt/raid_media/wallpapers/$board/"$title"
+directory=/mnt/media/wallpapers/$board/"$title"
 jq < "$json" ".posts[] | (.tim|tostring) + .ext" | sed 's/"//g' | grep -v null | awk "{print \"https://i.4cdn.org/$board/\"\$1}" | sort -u | xargs -P8 -I {} grab-wallpaper {} "$directory"
 
 rm "$json"

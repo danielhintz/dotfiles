@@ -1,3 +1,0 @@
-#!/bin/sh
-
-/usr/bin/abook --config "$XDG_CONFIG_HOME"/abook/abookrc --datafile "$XDG_DATA_HOME"/abook/addressbook "$@"

@@ -3,9 +3,22 @@
 loc=10022
 
 case $BLOCK_BUTTON in
-	"1")
-		curl wttr.in/$loc > /tmp/weatherrep
-		st -e less /tmp/weatherrep
-		;;
+"1")
+    curl wttr.in/$loc >/tmp/weatherrep
+    st -e less /tmp/weatherrep
+    ;;
 esac
-curl "wttr.in/$loc?format=1" 2>/dev/null | awk '{print $2}' | sed 's/location\;/Error/'
+tmp=$(mktemp)
+curl "wttr.in/$loc?format=1" 2>/dev/null | sed 's/  //' >$tmp
+
+grep -q Unknown $tmp && {
+    echo "N/A"
+    rm $tmp
+    exit
+}
+
+if [ -s "$tmp" ]; then
+    cat $tmp
+fi
+
+rm $tmp

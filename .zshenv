@@ -2,7 +2,7 @@ export EDITOR="nvim"
 export MANPAGER="nvim +Man!"
 export PAGER="nvim +Man!"
 export TERMINAL="st -e tmux"
-export BROWSER="qutebrowser"
+export BROWSER="zen-browser"
 export READER="zathura"
 export FILE="lf"
 
@@ -11,7 +11,7 @@ export PATH="$PATH:/opt/flutter/bin"
 
 export BIB="$HOME/Documents/LaTeX/uni.bib"
 export REFER="$HOME/Documents/referbib"
-export SUDO_ASKPASS="$HOME/.local/bin/dmenupass"
+export SUDO_ASKPASS="$HOME/.local/bin/scripts/dmenupass"
 
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_DATA_HOME="$HOME/.local/share"
@@ -44,11 +44,11 @@ export PASSWORD_STORE_DIR="$XDG_DATA_HOME/password-store"
 export PYLINTHOME="$XDG_CACHE_HOME"/pylint
 export STATUSBAR="dwmblocks"
 export TRASH="$XDG_DATA_HOME/trash"
+export WEBKIT_DISABLE_COMPOSITING_MODE=1
 export WINEPREFIX="$XDG_DATA_HOME/wineprefixes/default"
 export XAUTHORITY="$XDG_RUNTIME_DIR/Xauthority"
 export XINITRC="$XDG_CONFIG_HOME"/X11/xinitrc
 export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
-
 
 # less/man colors
 export LESS=-R

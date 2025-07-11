@@ -3,18 +3,19 @@
 setbg &                         # Wallpaper
 pkill unclutter; unclutter &    # Remove mouse when idle
 pkill dunst; dunst &            # For notifications
-pkill xcompmgr; xcompmgr &		# xcompmgr for transparency
+# pkill xcompmgr; xcompmgr &		# xcompmgr for transparency
 restartstatusbar &              # Start statusbar
-command -v protonmail-bridge >/dev/null && (pkill protonmail-bridge; protonmail-bridge -n &)
+command -v protonmail-bridge >/dev/null && (pkill protonmail-bridge; protonmail-bridge &)
+rquickshare &
 
 keyboardfix& #Remap caps lock and increase x speed
-
 mousesensitivities &
 
-rm -f "$XDG_CACHE_HOME"/.netlog
+rm -f "$XDG_CACHE_HOME"/netlog
 
 # Wallpaper that spans my monitors
 #(cd /Media/wallpapers/space1/ && xwallpaper --output DP-2 --maximize dual1.jpg --output DP-0 --maximize dual2.jpg)
 
 export _JAVA_AWT_WM_NONREPARENTING=1
 export AWT_TOOLKIT=MToolkit
+export WEBKIT_DISABLE_COMPOSITING_MODE=1

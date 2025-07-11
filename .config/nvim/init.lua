@@ -2,16 +2,19 @@ require("config.lazy")
 
 vim.cmd('source ~/.config/nvim/vimrc')
 
-vim.opt.bg = 'light'
+vim.opt.bg = 'dark'
 vim.opt.mouse = ''
 vim.opt.clipboard = 'unnamedplus'
 vim.opt.ts = 4
 vim.opt.softtabstop = 0
 vim.opt.expandtab = true
 vim.opt.smarttab = true
+vim.opt.ignorecase = true
+vim.opt.smartcase = true
 vim.opt.shiftwidth = 4
 vim.opt.scrolloff = 4
 
+vim.g.mapleader = ','
 vim.g.nocompatible = true
 vim.opt.encoding = 'utf-8'
 vim.opt.number = true
@@ -55,12 +58,6 @@ vim.api.nvim_set_keymap('v', 'S', ':s//g<Left><Left>', {})
 
 --Fuzzy find
 vim.api.nvim_set_keymap('n', '<C-f>', ':FZF<Cr>', {})
-
---Shortcutting split navigation, saving a keypress:
-vim.api.nvim_set_keymap('n', '<C-h>', '<C-w>h', {})
-vim.api.nvim_set_keymap('n', '<C-j>', '<C-w>j', {})
-vim.api.nvim_set_keymap('n', '<C-k>', '<C-w>k', {})
-vim.api.nvim_set_keymap('n', '<C-l>', '<C-w>l', {})
 
 vim.api.nvim_set_keymap('n', '<M-LeftMouse>', '<Plug>(VM-Mouse-Cursor)', {})
 vim.api.nvim_set_keymap('i', '<M-LeftMouse>', '<ESC><Plug>(VM-Mouse-Cursor)', {silent=true})
@@ -106,6 +103,21 @@ local on_attach = function(client, bufnr)
   vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, bufopts)
   vim.keymap.set('n', 'gr', vim.lsp.buf.references, bufopts)
 end
+
+vim.api.nvim_set_keymap('n', '<leader>ga', ':GeminiApply<CR>', { desc = 'Gemini Action' })
+vim.api.nvim_set_keymap('v', '<leader>ge', ':GeminiExplain<CR>', { desc = 'Gemini Explain' })
+vim.api.nvim_set_keymap('v', '<leader>gt', ':GeminiTest<CR>', { desc = 'Gemini Test' })
+
+require('gemini').setup({
+  -- your custom configuration goes here
+  -- For example, to change the model:
+  model = "models/gemini-2.5-flash", -- or "models/gemini-pro"
+  chat = {
+    enabled = true,
+  },
+  -- See the plugin's documentation for all available options
+})
+
 
 require('vgit').setup({
   keymaps = {
@@ -182,7 +194,7 @@ require('vgit').setup({
       },
     },
     live_blame = {
-      enabled = false,
+      enabled = true,
       format = function(blame, git_config)
         local config_author = git_config['user.name']
         local author = blame.author
@@ -233,7 +245,7 @@ require('vgit').setup({
       end,
     },
     live_gutter = {
-      enabled = false,
+      enabled = true,
       edge_navigation = true, -- This allows users to navigate within a hunk
     },
     authorship_code_lens = {
@@ -406,3 +418,9 @@ cmp.setup({
     { name = 'luasnip' },
   },
 })
+
+--Shortcutting split navigation, saving a keypress:
+vim.api.nvim_set_keymap('n', '<C-h>', '<C-w>h', {})
+vim.api.nvim_set_keymap('n', '<C-j>', '<C-w>j', {})
+vim.api.nvim_set_keymap('n', '<C-k>', '<C-w>k', {})
+vim.api.nvim_set_keymap('n', '<C-l>', '<C-w>l', {})
